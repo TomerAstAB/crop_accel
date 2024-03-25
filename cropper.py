@@ -4,9 +4,9 @@ import numpy as np
 
 class Cropper:
 
-    def __init__(self):
+    def __init__(self, device_name=0):
         # Initialize CUDA-accelerated OpenCV
-        cv2.cuda.setDevice(0)  # Set the GPU device (change if you have multiple GPUs)
+        cv2.cuda.setDevice(device_name)  # Set the GPU device (change if you have multiple GPUs)
 
     def crop_image(self, image_path, bounding_boxes):
         # Load image
@@ -51,3 +51,5 @@ class Cropper:
         stream.waitForCompletion()
 
         return cropped_images
+
+
